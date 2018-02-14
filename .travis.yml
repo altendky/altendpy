@@ -1,0 +1,17 @@
+language: python
+
+sudo: false
+
+python:
+  - 3.4
+  - 3.5
+  - 3.6
+
+install:
+  - pip install tox-travis
+  - python -m pip install -r requirements.test
+
+script:
+  - python setup.py bdist_wheel
+  - tox
+  - codecov

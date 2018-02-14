@@ -1,0 +1,42 @@
+environment:
+  VENV: "%APPVEYOR_BUILD_FOLDER%\\venv"
+
+  matrix:
+    - TOXENV: py34
+      PYTHON: "C:\\Python34"
+
+    - TOXENV: py34
+      PYTHON: "C:\\Python34-x64"
+
+    - TOXENV: py35
+      PYTHON: "C:\\Python35"
+
+    - TOXENV: py35
+      PYTHON: "C:\\Python35-x64"
+
+    - TOXENV: py36
+      PYTHON: "C:\\Python36"
+
+    - TOXENV: py36
+      PYTHON: "C:\\Python36-x64"
+      BUILD_WHEEL: 1
+
+init:
+  - echo "TOXENV- %TOXENV%"
+
+install:
+  - virtualenv -p "%PYTHON%\\python.exe" "%VENV%"
+  - "%VENV%\\Scripts\\activate"
+  - pip install .
+  - ps: Update-AppveyorBuild -Version "v$(python -c 'import sys; import altendpy; sys.stdout.write(altendpy.__version__)') b$Env:APPVEYOR_BUILD_NUMBER"
+  - pip install -r requirements.test
+
+build_script:
+  - if defined BUILD_WHEEL python setup.py bdist_wheel
+
+test_script:
+  - tox
+  - codecov
+
+artifacts:
+  - path: "dist\\*.whl"
