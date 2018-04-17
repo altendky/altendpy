@@ -15,3 +15,12 @@ script:
   - python setup.py bdist_wheel
   - tox
   - codecov
+
+deploy:
+  provider: pypi
+  user: altendky
+  password: $PYPI_PASSWORD
+  on:
+    branch: develop
+    tags: true
+  distributions: bdist_wheel
