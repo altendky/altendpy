@@ -5,7 +5,7 @@ altendpy
 
 Miscellanious extras that I like to use when working with Python.
 
-.. |Travis build| image:: https://travis-ci.org/altendky/altendpy.svg
+.. |Travis build| image:: https://travis-ci.org/altendky/altendpy.svg?branch=master
    :alt: Travis build status
    :target: https://travis-ci.org/altendky/altendpy
 
