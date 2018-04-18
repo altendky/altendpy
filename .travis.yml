@@ -3,9 +3,9 @@ language: python
 sudo: false
 
 python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
+  - 3.4
+  - 3.5
+  - 3.6
 
 install:
   - pip install tox-travis
@@ -23,5 +23,5 @@ deploy:
   on:
     branch: develop
     tags: true
-    condition: $PYTHON = "3.6"
+    condition: $TRAVIS_PYTHON_VERSION = 3.6
   distributions: bdist_wheel
