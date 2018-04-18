@@ -12,6 +12,7 @@ setuptools.setup(
     cmdclass = versioneer.get_cmdclass(),
     description="Extras for working with Python.",
     long_description=readme,
+    long_description_content_type='text/x-rst',
     author='Kyle Altendorf',
     author_email='sda@fstab.net',
     url='https://github.com/altendky/altendpy',
