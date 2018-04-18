@@ -1,7 +1,7 @@
 altendpy
 ========
 
-|PyPI| |Pythons| |Travis| |AppVeyor|
+|PyPI| |Pythons| |Travis| |AppVeyor| |codecov|
 
 Miscellanious extras that I like to use when working with Python.
 
@@ -21,3 +21,6 @@ Miscellanious extras that I like to use when working with Python.
    :alt: AppVeyor build status
    :target: https://ci.appveyor.com/project/KyleAltendorf/altendpy
 
+.. |codecov| image:: https://codecov.io/gh/altendky/altendpy/branch/develop/graph/badge.svg
+   :alt: codecov coverage status
+   :target: https://codecov.io/gh/altendky/altendpyq
