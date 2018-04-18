@@ -23,5 +23,5 @@ deploy:
   on:
     branch: develop
     tags: true
-    condition: $PYTHON = "3.6"
+    condition: $PYTHON = 3.6
   distributions: bdist_wheel
