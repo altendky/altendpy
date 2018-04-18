@@ -1,10 +1,15 @@
 altendpy
 ========
 
-|AppVeyor|_
+|Travis build| |AppVeyor build|
 
 Miscellanious extras that I like to use when working with Python.
 
-.. |AppVeyor| image:: https://ci.appveyor.com/api/projects/status/i7bgg319r4did48i?svg=true
+.. |Travis build| image:: https://travis-ci.org/altendky/altendpy.svg
+   :alt: Travis build status
+   :target: https://travis-ci.org/altendky/altendpy
+
+.. |AppVeyor build| image:: https://ci.appveyor.com/api/projects/status/i7bgg319r4did48i?svg=true
    :alt: AppVeyor build status
-.. _AppVeyor: https://ci.appveyor.com/project/KyleAltendorf/altendpy
+   :target: https://ci.appveyor.com/project/KyleAltendorf/altendpy
+
