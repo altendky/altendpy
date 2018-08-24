@@ -49,9 +49,10 @@ class Runner:
             'Repeats interleaved: {}'.format(self.interleave)
         ]
         for example in sorted(self.examples, key=lambda e: self.results[e]):
-            lines.append('{percent:5}%   {statement}'.format(
+            lines.append('{percent:5}%   {statement} : {minimum}'.format(
                 percent=round(100 * self.results[example] / minimum),
                 statement=example.statement,
+                minimum=self.results[example],
             ))
 
         return '\n'.join(lines)
