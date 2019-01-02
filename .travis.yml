@@ -9,6 +9,7 @@ python:
   - 3.5
   - 3.6
   - 3.7
+  - pypy3
 
 install:
   - python -m pip install --upgrade pip setuptools wheel
