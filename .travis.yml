@@ -22,7 +22,7 @@ script:
 
 deploy:
   provider: pypi
-  user: altendky
+  user: $PYPI_USERNAME
   password: $PYPI_PASSWORD
   on:
     branch: develop
