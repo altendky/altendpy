@@ -29,6 +29,7 @@ setuptools.setup(
     ],
     install_requires=[
         'attrs',
+        'jinja2',
     ],
     extras_require={
         'test': [
@@ -39,6 +40,11 @@ setuptools.setup(
         ],
         'dev': [
             'gitignoreio',
+        ],
+    },
+    entry_points={
+        'console_scripts': [
+            'processtemplates = altendpy.cli.misc:processtemplates'
         ],
     },
 )
