@@ -39,7 +39,10 @@ def render(source, destination, context={}, encoding='utf-8', newline='\n'):
     rendered = template.render(context)
     rendered = rendered.rstrip() + newline
 
-    destination.write_bytes(rendered.encode(encoding))
+    encoded = rendered.encode(encoding)
+
+    if destination.read_bytes() != encoded:
+        destination.write_bytes(encoded)
 
 
 @attr.s
