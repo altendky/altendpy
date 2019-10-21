@@ -41,7 +41,12 @@ def render(source, destination, context={}, encoding='utf-8', newline='\n'):
 
     encoded = rendered.encode(encoding)
 
-    if destination.read_bytes() != encoded:
+    try:
+        existing = destination.read_bytes()
+    except FileNotFoundError:
+        existing = None
+
+    if existing != encoded:
         destination.write_bytes(encoded)
 
 
