@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    branches:
+      - "**"
+  schedule:
+    # Daily at 05:14
+    - cron: '14 5 * * *'
+
+jobs:
+  test:
+    # Should match JOB_NAME below
+    name: ${{ matrix.task.name }} - ${{ matrix.os.name }} ${{ matrix.python.name }}
+    runs-on: ${{ matrix.os.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        task:
+          - name: Test
+            tox: test
+            coverage: true
+        os:
+          - name: Linux
+            runs-on: ubuntu-latest
+            python_platform: linux
+            matrix: linux
+          - name: Windows
+            runs-on: windows-latest
+            python_platform: win32
+            matrix: windows
+          - name: macOS
+            runs-on: macos-latest
+            python_platform: darwin
+            matrix: macos
+        python:
+          - name: CPython 3.7
+            action: 3.7
+            docker: 3.7
+          - name: CPython 3.8
+            action: 3.8
+            docker: 3.8
+          - name: CPython 3.9
+            action: 3.9
+            docker: 3.9
+          - name: CPython 3.10
+            action: "3.10"
+            docker: "3.10"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up ${{ matrix.python.name }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python.action }}
+      - name: Test
+        run: |
+            python server.py & python client.py
