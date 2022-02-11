@@ -62,3 +62,9 @@ jobs:
       - name: Test
         run: |
             python server.py & python client.py
+      - name: Stuff
+        run: |
+            curl -6 https://www.google.com
+            curl https://www.google.com
+            curl -4 https://www.google.com
+            ping6 -c 10 ipv6.google.com
